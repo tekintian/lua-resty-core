@@ -1,6 +1,6 @@
-OPENRESTY_PREFIX=/usr/local/openresty
+OPENRESTY_PREFIX=/usr
 
-#LUA_VERSION := 5.1
+#LUA_VERSION := 5.1 
 PREFIX ?=          /usr/local
 LUA_INCLUDE_DIR ?= $(PREFIX)/include
 LUA_LIB_DIR ?=     $(PREFIX)/lib/lua/$(LUA_VERSION)
@@ -20,5 +20,5 @@ install: all
 	$(INSTALL) lib/ngx/ssl/*.lua $(DESTDIR)$(LUA_LIB_DIR)/ngx/ssl/
 
 test: all
-	PATH=$(OPENRESTY_PREFIX)/nginx/sbin:$$PATH prove -I../test-nginx/lib -r t
+	PATH=$(OPENRESTY_PREFIX)/sbin:$$PATH prove -I../test-nginx/lib -r t
 
